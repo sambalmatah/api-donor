@@ -22,9 +22,16 @@ const getAllUsers = async (request, response) => {
 const createNewUser = async (request, response) => {
     const { body } = request;
 
+    if (!body.nama || !body.email || !body.nik || !body.password || !body.status) {
+        return response.status(400).json({
+                message: 'Bad Request',
+                data: null,
+            })
+    }
+
     try {
         await usersModels.createNewUser(body);
-        response.json({
+        response.status(201).json({
             message: 'CREATE new user succes',
             data: request.body
         })
