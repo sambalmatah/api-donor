@@ -17,6 +17,8 @@ const app = express();
 app.use(logMiddleware);
 app.use(express.json()); // mengizinkan request body berupa json
 
+app.use('/assets', express.static('public/profiles')) // mengizinkan menyimpan gambar ke dalam folder
+
 app.use('/users', userRouters);
 
 
