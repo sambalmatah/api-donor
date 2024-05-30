@@ -5,7 +5,8 @@ const PORT = process.env.PORT || 5000;
 const express = require('express');
 const userRouters = require('./routers/users.js');
 const userDetailRouter = require('./routers/user-detail.js');
-const transactionRoutes = require('./routers/donor_transactions.js');
+const transactionRoutes = require('./routers/donor-transactions.js');
+const transactionDetailRoutes = require('./routers/donor-transaction-details.js');
 const logMiddleware = require('./middleware/logs.js');
 const upload = require('./middleware/multer.js');
 
@@ -28,7 +29,9 @@ app.use('/user-details', userDetailRouter);
 
 app.use('/transactions', transactionRoutes);
 
-// app.get('/transactions', (request, response) => {
+app.use('/transaction-details', transactionDetailRoutes);
+
+// app.get('/transaction-details', (request, response) => {
 //     response.json({
 //         message: 'GET all transactions success'
 //     })

@@ -1,4 +1,4 @@
-const donorTransactionModels = require('../models/donor_transactions.js');
+const donorTransactionModels = require('../models/donor-transactions.js');
 
 const getAllTransactions = async (request, response) => {
     
