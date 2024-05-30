@@ -9,13 +9,11 @@ const getAllUsers = async (request, response) => {
             message: 'GET all users success',
             data: data
         })
-        
     } catch (error) {
         response.status(500).json({
             message: 'Server Error',
             serverMassage: error
         })
-        
     }
 };
 
@@ -80,6 +78,8 @@ const deleteUser = async (request, response) => {
         })
     }
 } 
+
+
 
 module.exports = {
     getAllUsers,
