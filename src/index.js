@@ -31,12 +31,6 @@ app.use('/transactions', transactionRoutes);
 
 app.use('/transaction-details', transactionDetailRoutes);
 
-// app.get('/transaction-details', (request, response) => {
-//     response.json({
-//         message: 'GET all transactions success'
-//     })
-// });
-
 
 
 app.post('/upload', upload.single('photo'), (request, response) => { //fungsi upload gambar
