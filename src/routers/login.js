@@ -1,10 +1,10 @@
 const express = require('express');
-const route = express.Router();
+const router = express.Router();
 const loginControllers = require('../controllers/login.js');
 
 // LOGIN - GET(BODY)
-route.get('/', loginControllers.loginUser);
+router.get('/', loginControllers.loginUser);
 
 
 
-module.exports = route
+module.exports = router
