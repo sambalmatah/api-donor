@@ -7,6 +7,7 @@ const userRouters = require('./routers/users.js');
 const userDetailRouter = require('./routers/user-detail.js');
 const transactionRoutes = require('./routers/donor-transactions.js');
 const transactionDetailRoutes = require('./routers/donor-transaction-details.js');
+const loginRoutes = require('./routers/login.js');
 const logMiddleware = require('./middleware/logs.js');
 const upload = require('./middleware/multer.js');
 
@@ -30,6 +31,8 @@ app.use('/user-details', userDetailRouter);
 app.use('/transactions', transactionRoutes);
 
 app.use('/transaction-details', transactionDetailRoutes);
+
+app.use('/login', loginRoutes);
 
 
 
