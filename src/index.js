@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
+<<<<<<< HEAD
 const express = require("express");
 const userRouters = require("./routers/users.js");
 const userDetailRouter = require("./routers/user-detail.js");
@@ -10,6 +11,18 @@ const transactionDetailRoutes = require("./routers/donor-transaction-details.js"
 const loginRoutes = require("./routers/login.js");
 const logMiddleware = require("./middleware/logs.js");
 const upload = require("./middleware/multer.js");
+=======
+const express = require('express');
+const userRouters = require('./routers/users.js');
+const userDetailRouter = require('./routers/user-detail.js');
+const transactionRoutes = require('./routers/donor-transactions.js');
+const transactionDetailRoutes = require('./routers/donor-transaction-details.js');
+const loginRoutes = require('./routers/login.js');
+const logMiddleware = require('./middleware/logs.js');
+const upload = require('./middleware/multer.js');
+
+
+>>>>>>> f404151f18ff7303a2e9ae3de01b15cf6c2f632a
 
 // Membuat variable fungsi express
 
@@ -30,7 +43,12 @@ app.use("/transactions", transactionRoutes);
 
 app.use("/transaction-details", transactionDetailRoutes);
 
+<<<<<<< HEAD
 app.use("/login", loginRoutes);
+=======
+app.use('/login', loginRoutes);
+
+>>>>>>> f404151f18ff7303a2e9ae3de01b15cf6c2f632a
 
 app.post("/upload", upload.single("photo"), (request, response) => {
   //fungsi upload gambar
