@@ -1,13 +1,11 @@
-const dbPool = require('../config/database.js');
+const dbPool = require("../config/database.js");
 
-const loginUser = (email, password) => {
-    const SQLQuery = `SELECT * FROM users WHERE email='${email}' AND password='${password}'`;
+const loginUser = (body) => {
+  const SQLQuery = `SELECT * FROM users WHERE email='${body.email}' AND password='${body.password}'`;
 
-    return dbPool.execute(SQLQuery);
-}
-
-
+  return dbPool.execute(SQLQuery);
+};
 
 module.exports = {
-    loginUser,
-}
+  loginUser,
+};
