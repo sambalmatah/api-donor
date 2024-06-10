@@ -7,6 +7,7 @@ const userRouters = require("./routers/users.js");
 const userDetailRouter = require("./routers/user-detail.js");
 const transactionRoutes = require("./routers/donor-transactions.js");
 const transactionDetailRoutes = require("./routers/donor-transaction-details.js");
+const verifyProfile = require('./routers/verify-profile.js');
 const loginRoutes = require("./routers/login.js");
 const logMiddleware = require("./middleware/logs.js");
 const upload = require("./middleware/multer.js");
@@ -31,6 +32,8 @@ app.use("/transactions", transactionRoutes);
 app.use("/transaction-details", transactionDetailRoutes);
 
 app.use("/login", loginRoutes);
+
+app.use("/profile", verifyProfile);
 
 app.post("/upload", upload.single("photo"), (request, response) => {
   //fungsi upload gambar
