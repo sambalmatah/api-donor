@@ -1,4 +1,5 @@
 const loginModels = require("../models/login.js");
+const jwt = require('jsonwebtoken');
 
 const loginUser = async (request, response) => {
   const { body } = request;
@@ -12,12 +13,13 @@ const loginUser = async (request, response) => {
         data: null,
       });
     } else {
+      const token = jwt.sign({ id: data.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
       response.json({
-        message: "login berhasil",
-        data: data,
+        token,
       });
     }
   } catch (error) {
+    console.log(error);
     response.status(500).json({
       message: "Server Error",
       serverMessage: error,
