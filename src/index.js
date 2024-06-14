@@ -7,7 +7,8 @@ const userRouters = require("./routers/users.js");
 const userDetailRouter = require("./routers/user-detail.js");
 const transactionRoutes = require("./routers/donor-transactions.js");
 const transactionDetailRoutes = require("./routers/donor-transaction-details.js");
-const riwayatProfileRoutes = require('./routers/riwayat-profile.js');
+const historyContributorRoutes = require('./routers/history-contributor.js');
+const historySubmittedRoutes = require("./routers/history-submitted.js");
 const verifyProfile = require('./routers/verify-profile.js');
 const loginRoutes = require("./routers/login.js");
 const logMiddleware = require("./middleware/logs.js");
@@ -22,7 +23,6 @@ const app = express();
 app.use(logMiddleware);
 app.use(express.json()); // mengizinkan request body berupa json
 
-app.use("/assets", express.static("public/profiles")); // mengizinkan get data gambar ke dalam folder
 
 app.use("/users", userRouters);
 
@@ -36,7 +36,12 @@ app.use("/login", loginRoutes);
 
 app.use("/profile", verifyProfile);
 
-app.use("/riwayat-profile", riwayatProfileRoutes);
+app.use("/history-contributor", historyContributorRoutes);
+
+app.use("/history-submitted", historySubmittedRoutes);
+
+
+app.use("/assets", express.static("public/profiles")); // mengizinkan get data gambar ke dalam folder
 
 app.post("/upload", upload.single("photo"), (request, response) => {
   //fungsi upload gambar
