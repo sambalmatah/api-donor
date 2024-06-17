@@ -4,7 +4,7 @@ const userDetailsController = require('../controllers/user-details.js')
 
 
 // READ - GET
-router.get('/', userDetailsController.getAllUserDetails);
+router.get('/:id', userDetailsController.getAllUserDetails);
 
 // UPDATE - PATCH
 router.patch('/:id', userDetailsController.updateUserDetails)

@@ -7,11 +7,21 @@ const getHistorySubmitted = async (request, response) => {
     try {
         
         const [ data ] = await historySubmittedModels.getHistorySubmitted(id);
+
+        if (data.length === 0) {
+            response.json({
+                message: "no data",
+                data: null
+            });
+    
+        } else {
+            response.json({
+                message: "success",
+                data: data
+            });
+
+        }
         
-        response.json({
-            message: "success",
-            data: data
-        });
         
     } catch (error) {
         response.status(500).json({
